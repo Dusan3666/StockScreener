@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Screener</title>
+
+    <!-- Include Chart.js and financial chart plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Redirect to login page if not logged in -->
+    <script>
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <div class="container">
+        <h1>Stock Screener</h1>
+
+        <!-- Stock Search Input -->
+        <input type="text" id="ticker" placeholder="Enter stock ticker (e.g., AAPL)">
+        <button id="searchBtn">Search</button>
+
+        <!-- Stock Data Output -->
+        <div id="stockData" class="stock-data"></div>
+
+        <!-- Candlestick Chart -->
+        <canvas id="stockChart" width="400" height="200"></canvas>
+
+        <!-- Buttons -->
+        <div class="button-container">
+            <button class="contact-btn" onclick="openContactForm()">Contact</button>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Functions -->
+    <script>
+        function logout() {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "login.html";
+        }
+
+        function openContactForm() {
+            alert("Contact form functionality coming soon!");
+        }
+    </script>
+
+    <!-- Link External JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

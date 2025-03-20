@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="login()">Login</button>
+        <p id="error-message" style="color: red;"></p>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Dummy credentials (Replace with real authentication later)
+            const validUsername = "admin";
+            const validPassword = "12345";
+
+            if (username === validUsername && password === validPassword) {
+                // Store login status in localStorage
+                localStorage.setItem("isLoggedIn", "true");
+                window.location.href = "index.html"; // Redirect to main page
+            } else {
+                document.getElementById("error-message").innerText = "Invalid credentials!";
+            }
+        }
+
+        // Check if user is already logged in
+        if (localStorage.getItem("isLoggedIn") === "true") {
+            window.location.href = "index.html"; // Redirect if already logged in
+        }
+    </script>
+
+</body>
+</html>
